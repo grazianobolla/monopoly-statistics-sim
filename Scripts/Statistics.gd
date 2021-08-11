@@ -25,6 +25,6 @@ func update_timer():
 
 func update_labels(avg, throws, min_chance, max_chance):
 	throws_label.text = "throws: " + str(throws)
-	chance_label.text = "average: " + str(stepify(avg, 0.1)) + "%" + \
-	"\nmin: " + str(stepify(min_chance, 0.1))+ "%" + \
-	"\nmax: " + str(stepify(max_chance, 0.1)) + "%"	
+	chance_label.text = "average: " + str(stepify(avg, 0.001)) + "%" + \
+	"\nmin: " + str(stepify(min_chance, 0.001))+ "%" + \
+	"\nmax: " + str(stepify(max_chance, 0.001)) + "%"	

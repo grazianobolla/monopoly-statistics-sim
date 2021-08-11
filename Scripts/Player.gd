@@ -9,7 +9,5 @@ func move(amount):
 		current_index += amount
 	else:
 		current_index = amount - (cell_array_size - current_index)
-		
-	translation = CellSpawner.cell_array[current_index].translation
 	
-	return CellSpawner.cell_array[current_index]
+	return  CellSpawner.cell_array[current_index]

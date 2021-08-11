@@ -19,8 +19,8 @@ func spawn_cells():
 	for i in range(cells_total):
 		if i % (cells_total / 4) == 0:
 			var inverted_x = direction.x * -1
-			direction.x = direction.y
-			direction.y = inverted_x
+			direction.x = -direction.y
+			direction.y = -inverted_x
 			
 		var temp_cell = cell_scene.instance()
 		cell_array.append(temp_cell)

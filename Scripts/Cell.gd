@@ -24,4 +24,11 @@ func update_indicators(min_chance, max_chance):
 	"\nchance: " + str(chance) + "%" + \
 	"\nrelative chance: " + str(relative_chance)
 	
-	material.albedo_color = Color (relative_chance, relative_chance, relative_chance)
+	if index == 39:
+		material.albedo_color = Color (0, relative_chance, 0)
+	elif index == 9:
+		material.albedo_color = Color (relative_chance, relative_chance, 0)
+	elif index == 29:
+		material.albedo_color = Color (relative_chance, 0, 0)
+	else:
+		material.albedo_color = Color (relative_chance, relative_chance, relative_chance)

@@ -24,10 +24,16 @@ func _process(_delta):
 	
 func do():
 	var dice_number = throw_dice()
-	var landed_cell = player.move(dice_number)
+	var cell = player.move(dice_number)
+	player.translation = CellSpawner.cell_array[cell.index].translation
+	cell.process_landing()
 	
-	landed_cell.process_landing()
+	if cell.index == 29:
+		player.current_index = 9
+		player.translation = CellSpawner.cell_array[9].translation
+		CellSpawner.cell_array[9].process_landing()
 
 func throw_dice():
 	dice_throws += 1
 	return random.randi_range(2, 12)
+	#return 1
