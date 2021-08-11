@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=6]
+[ext_resource path="res://Default-Font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scripts/Statistics.gd" type="Script" id=8]
+
+[node name="Scene" type="Spatial"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThrowsLabel" type="Label" parent="Control"]
+margin_right = 149.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 7 )
+text = "INFORMATION_LABEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChanceLabel" type="Label" parent="Control"]
+margin_top = 36.0
+margin_right = 301.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 7 )
+text = "CHANCE_LABEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 6 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.999892, -0.00995303, 0.00850084, 0, 0.649436, 0.760381, -0.0130893, -0.760314, 0.649382, -13.626, 19.8812, 6.31623 )
+current = true
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Statistics" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="Statistics"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Statistics/Timer" to="Statistics" method="update_timer"]
